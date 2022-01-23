@@ -59,7 +59,7 @@ function CatFactBox() {
     fetch("https://catfact.ninja/fact")
       .then((response) => response.json())
       .then((data) => setCatFact(data.fact))
-      .then((error)=> setCatFact('error'));
+      .catch((error)=> setCatFact('error'));
   }, []);
   return (
     <div className="HeaderBox">
