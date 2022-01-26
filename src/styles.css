@@ -1,11 +1,6 @@
 .App {
-  font-family: sans-serif;
+  font-family: "roboto", sans-serif;
   text-align: center;
   max-width: 64rem;
   margin: 0 auto;
-}
-
-.HeaderBox {
-  flex-basis: 50%;
-  flex-grow: 0;
 }
