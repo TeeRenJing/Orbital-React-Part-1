@@ -11,7 +11,7 @@ export default function TaskManager(props) {
     event.preventDefault();
     const newTasks = [
       ...tasks,
-      { description: newTaskDesc, isComplete: false }
+      { description: newTaskDesc, isComplete: false },
     ];
     setTasks(newTasks);
     console.log(newTasks);
@@ -46,7 +46,6 @@ export default function TaskManager(props) {
           <Button type="submit" variant="contained">
             Add
           </Button>
-          {/* <input type="submit" value="Add" /> */}
         </form>
       </Box>
 
@@ -70,9 +69,9 @@ function TaskList(props) {
       ...tasks.slice(0, taskToToggleIndex),
       {
         description: taskToToggle.description,
-        isComplete: !taskToToggle.isComplete
+        isComplete: !taskToToggle.isComplete,
       },
-      ...tasks.slice(taskToToggleIndex + 1)
+      ...tasks.slice(taskToToggleIndex + 1),
     ];
     setTasks(newTasks);
   }
@@ -88,9 +87,12 @@ function TaskList(props) {
           </tr>
         </thead>
         <tbody>
+          {/* https://www.geeksforgeeks.org/how-to-build-an-html-table-using-reactjs-from-arrays/ */}
+          {/* How to build a HTML table using ReactJS from arrays!! */}
           {tasks.map((task, index) => {
             return (
               <tr key={index}>
+                {/* {cause humans count from 1,2,3 not 0,1,2,3} */}
                 <td>{index + 1}</td>
                 <td>{task.description}</td>
                 <td>
@@ -98,17 +100,12 @@ function TaskList(props) {
                     checked={task.isComplete}
                     onChange={() => handleTaskToggle(task, index)}
                   />
-                  {/* <input
-                    type="checkbox"
-                    checked={task.isComplete}
-                    onChange={() => handleTaskToggle(task, index)}
-                  /> */}
                 </td>
               </tr>
             );
           })}
         </tbody>
-      </table>{" "}
+      </table>
     </>
   );
 }
